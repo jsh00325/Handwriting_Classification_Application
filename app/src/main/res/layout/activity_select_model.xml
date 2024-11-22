@@ -5,6 +5,44 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="@dimen/select_model_padding"
     tools:context=".presentation.select_model.SelectModelActivity">
+
+    <TextView
+        android:id="@+id/select_model_title_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/select_model_title"
+        android:textColor="@color/textBlack"
+        android:textSize="@dimen/select_model_title_text_size"
+        app:layout_constraintBottom_toTopOf="@id/select_model_recycler_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/select_model_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/select_model_recycler_view_height"
+        android:background="@drawable/select_model_round_background"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toTopOf="@id/select_model_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/select_model_title_text_view"
+        tools:listitem="@layout/item_select_model" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/select_model_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/all_button_background"
+        android:text="@string/select_model_button"
+        android:textColor="@color/textWhite"
+        android:textSize="@dimen/select_model_button_text_size"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/select_model_recycler_view" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

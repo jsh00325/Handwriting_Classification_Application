@@ -4,8 +4,8 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="background">#F4F4FB</color>
-    <color name="primary">#0E1DC2</color>
-    <color name="secondary">#0C84AC</color>
+    <color name="primary">#0C84AC</color>
+    <color name="secondary">#0E1DC2</color>
     <color name="textBlack">#111111</color>
     <color name="textGray">#888888</color>
     <color name="textWhite">#F8F8F8</color>

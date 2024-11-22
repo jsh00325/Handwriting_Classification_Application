@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 공용 리소스 -->
+    <dimen name="all_button_radius">10dp</dimen>
+
+    <!-- 모델 선택 페이지 -->
+    <dimen name="select_model_padding">48dp</dimen>
+    <dimen name="select_model_title_text_size">24sp</dimen>
+    <dimen name="select_model_recycler_view_height">350dp</dimen>
+    <dimen name="select_model_button_text_size">18sp</dimen>
+    <dimen name="select_model_item_padding">4dp</dimen>
+    <dimen name="select_model_item_background_radius">10dp</dimen>
+    <dimen name="select_model_item_model_name_text_size">18sp</dimen>
+</resources>
