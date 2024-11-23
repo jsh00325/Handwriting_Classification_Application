@@ -1,7 +1,7 @@
 package com.classification.handwriting.presentation.select_model
 
+import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -11,6 +11,8 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.classification.handwriting.R
 import com.classification.handwriting.databinding.ActivitySelectModelBinding
+import com.classification.handwriting.domain.model.ModelItem
+import com.classification.handwriting.presentation.camera.CameraActivity
 import com.classification.handwriting.presentation.select_model.data.SelectModelUiState
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -73,12 +75,18 @@ class SelectModelActivity : AppCompatActivity() {
                         is SelectModelUiState.SelectSuccess -> {
                             val modelList = state.modelList
                             viewModel.resetSelectModelState()
-
-                            // TODO: 카메라 화면으로 이동하기
+                            navigateToCameraActivity(modelList)
                         }
                     }
                 }
             }
         }
+    }
+
+    private fun navigateToCameraActivity(modelList: List<ModelItem>) {
+        val intent = Intent(this, CameraActivity::class.java).apply {
+            putParcelableArrayListExtra("modelList", ArrayList(modelList))
+        }
+        startActivity(intent)
     }
 }

@@ -39,7 +39,7 @@
         android:background="@drawable/all_button_background"
         android:text="@string/select_model_button"
         android:textColor="@color/textWhite"
-        android:textSize="@dimen/select_model_button_text_size"
+        android:textSize="@dimen/all_button_text_size"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
