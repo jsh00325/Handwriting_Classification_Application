@@ -9,4 +9,7 @@
     <!-- 카메라 페이지 -->
     <string name="camera_guide_bounding_box_desc">아래의 박스 안에 손글씨를 맞춰주세요.</string>
     <string name="camera_button">촬영 &amp; 분석</string>
+    <string name="camera_require_permission">카메라 권한이 필요합니다.</string>
+    <string name="camera_binding_error">카메라 바인딩에 실패했습니다.</string>
+    <string name="camera_capture_error">사진 촬영에 실패했습니다.</string>
 </resources>
