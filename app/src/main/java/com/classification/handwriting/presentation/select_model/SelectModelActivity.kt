@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.classification.handwriting.R
 import com.classification.handwriting.databinding.ActivitySelectModelBinding
 import com.classification.handwriting.domain.model.ModelItem
+import com.classification.handwriting.presentation.IntentContract.MODEL_LIST_EXTRA_NAME
 import com.classification.handwriting.presentation.camera.CameraActivity
 import com.classification.handwriting.presentation.select_model.data.SelectModelUiState
 import dagger.hilt.android.AndroidEntryPoint
@@ -85,7 +86,7 @@ class SelectModelActivity : AppCompatActivity() {
 
     private fun navigateToCameraActivity(modelList: List<ModelItem>) {
         val intent = Intent(this, CameraActivity::class.java).apply {
-            putParcelableArrayListExtra("modelList", ArrayList(modelList))
+            putParcelableArrayListExtra(MODEL_LIST_EXTRA_NAME, ArrayList(modelList))
         }
         startActivity(intent)
     }

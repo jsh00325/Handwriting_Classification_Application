@@ -18,11 +18,15 @@ import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.content.ContextCompat
 import com.classification.handwriting.R
 import com.classification.handwriting.databinding.ActivityCameraBinding
+import com.classification.handwriting.domain.model.ModelItem
+import com.classification.handwriting.presentation.IntentContract.CROPPED_IMAGE_EXTRA_NAME
+import com.classification.handwriting.presentation.IntentContract.MODEL_LIST_EXTRA_NAME
 import com.classification.handwriting.presentation.model_result.ModelResultActivity
 import java.io.ByteArrayOutputStream
 
 class CameraActivity : AppCompatActivity() {
     private lateinit var binding: ActivityCameraBinding
+    private lateinit var selectedModelList: List<ModelItem>
     private var imageCapture: ImageCapture? = null
     private var cameraProvider: ProcessCameraProvider? = null
     private var camera: Camera? = null
@@ -43,8 +47,13 @@ class CameraActivity : AppCompatActivity() {
         binding = ActivityCameraBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        getSelectedModelList()
         requestCameraPermission()
         setupShutterButton()
+    }
+
+    private fun getSelectedModelList() {
+        selectedModelList = intent.getParcelableArrayListExtra(MODEL_LIST_EXTRA_NAME) ?: emptyList()
     }
 
     private fun requestCameraPermission() {
@@ -125,7 +134,7 @@ class CameraActivity : AppCompatActivity() {
 
     private fun rotateBitmap(bitmap: Bitmap): Bitmap {
         val matrix = Matrix()
-        matrix.postRotate(90f)
+        matrix.postRotate(ROTATE_DEGREE)
         return Bitmap.createBitmap(bitmap, 0, 0, bitmap.width, bitmap.height, matrix, true)
     }
 
@@ -146,16 +155,17 @@ class CameraActivity : AppCompatActivity() {
     }
 
     private fun resizeBitmap(bitmap: Bitmap): Bitmap {
-        return Bitmap.createScaledBitmap(bitmap, 300, 130, false)
+        return Bitmap.createScaledBitmap(bitmap, RESIZE_WIDTH, RESIZE_HEIGHT, false)
     }
 
     private fun navigateToModelResultActivity(resultBitmap: Bitmap) {
         val stream = ByteArrayOutputStream()
-        resultBitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream)
+        resultBitmap.compress(Bitmap.CompressFormat.PNG, 100, stream)
         val byteArray = stream.toByteArray()
 
         val intent = Intent(this, ModelResultActivity::class.java).apply {
-            putExtra("croppedImage", byteArray)
+            putParcelableArrayListExtra(MODEL_LIST_EXTRA_NAME, ArrayList(selectedModelList))
+            putExtra(CROPPED_IMAGE_EXTRA_NAME, byteArray)
         }
         startActivity(intent)
     }
@@ -163,5 +173,11 @@ class CameraActivity : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
         cameraProvider?.unbindAll()
+    }
+
+    companion object {
+        private const val ROTATE_DEGREE = 90f
+        private const val RESIZE_WIDTH = 180
+        private const val RESIZE_HEIGHT = 78
     }
 }
