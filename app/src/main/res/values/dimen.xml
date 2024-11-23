@@ -22,7 +22,8 @@
 
     <!-- 결과 페이지 -->
     <dimen name="model_result_padding">24dp</dimen>
-    <dimen name="model_result_margin">8sp</dimen>
+    <dimen name="model_result_margin1">8dp</dimen>
+    <dimen name="model_result_margin2">16dp</dimen>
     <dimen name="model_result_title_text_size">36sp</dimen>
     <dimen name="model_result_item_title_text_size">24sp</dimen>
     <dimen name="model_result_item_body_text_size">20sp</dimen>
