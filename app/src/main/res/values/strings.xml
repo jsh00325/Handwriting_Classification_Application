@@ -12,4 +12,11 @@
     <string name="camera_require_permission">카메라 권한이 필요합니다.</string>
     <string name="camera_binding_error">카메라 바인딩에 실패했습니다.</string>
     <string name="camera_capture_error">사진 촬영에 실패했습니다.</string>
+
+    <!-- 결과 페이지 -->
+    <string name="model_result_title">분석 결과</string>
+    <string name="model_result_image_desc">분석할 손글씨 이미지</string>
+    <string name="model_result_item_gender_title">성별</string>
+    <string name="model_result_item_age_title">나이대</string>
+    <string name="model_result_item_inference_time_title">처리 시간</string>
 </resources>

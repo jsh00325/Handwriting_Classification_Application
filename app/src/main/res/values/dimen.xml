@@ -19,4 +19,17 @@
     <dimen name="camera_guide_bounding_box_height">130dp</dimen>
     <dimen name="camera_guide_bounding_box_margin">8dp</dimen>
     <dimen name="camera_guide_bounding_box_stroke_width">2dp</dimen>
+
+    <!-- 결과 페이지 -->
+    <dimen name="model_result_padding">24dp</dimen>
+    <dimen name="model_result_margin">8sp</dimen>
+    <dimen name="model_result_title_text_size">36sp</dimen>
+    <dimen name="model_result_item_title_text_size">24sp</dimen>
+    <dimen name="model_result_item_body_text_size">20sp</dimen>
+    <dimen name="model_result_item_title_margin">4dp</dimen>
+    <dimen name="model_result_item_inner_margin">12dp</dimen>
+    <dimen name="model_result_item_outer_margin">16dp</dimen>
+    <dimen name="model_result_item_background_radius">10dp</dimen>
+    <dimen name="model_result_item_background_stroke_width">1dp</dimen>
+
 </resources>

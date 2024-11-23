@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/model_result_item_outer_margin">
+
+        <TextView
+            android:id="@+id/model_result_item_title_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/model_result_item_title_margin"
+            android:textColor="@color/textBlack"
+            android:textSize="@dimen/model_result_item_title_text_size"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="모델명" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/model_result_item_background_constraint_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/model_result_item_background"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/model_result_item_title_text_view">
+
+
+            <TextView
+                android:id="@+id/model_result_item_gender_title_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/model_result_item_inner_margin"
+                android:text="@string/model_result_item_gender_title"
+                android:textColor="@color/textBlack"
+                android:textSize="@dimen/model_result_item_body_text_size"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/model_result_item_gender_result_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/model_result_item_inner_margin"
+                android:textColor="@color/textGray"
+                android:textSize="@dimen/model_result_item_body_text_size"
+                app:layout_constraintBottom_toBottomOf="@id/model_result_item_gender_title_text_view"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/model_result_item_gender_title_text_view"
+                tools:text="여성" />
+
+            <TextView
+                android:id="@+id/model_result_item_age_title_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/model_result_item_inner_margin"
+                android:text="@string/model_result_item_age_title"
+                android:textColor="@color/textBlack"
+                android:textSize="@dimen/model_result_item_body_text_size"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/model_result_item_gender_title_text_view" />
+
+            <TextView
+                android:id="@+id/model_result_item_age_result_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/model_result_item_inner_margin"
+                android:textColor="@color/textGray"
+                android:textSize="@dimen/model_result_item_body_text_size"
+                app:layout_constraintBottom_toBottomOf="@id/model_result_item_age_title_text_view"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/model_result_item_age_title_text_view"
+                tools:text="20대" />
+
+            <TextView
+                android:id="@+id/model_result_item_inference_time_title_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/model_result_item_inner_margin"
+                android:text="@string/model_result_item_inference_time_title"
+                android:textColor="@color/textBlack"
+                android:textSize="@dimen/model_result_item_body_text_size"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/model_result_item_age_result_text_view" />
+
+            <TextView
+                android:id="@+id/model_result_item_inference_time_result_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/model_result_item_inner_margin"
+                android:textColor="@color/textGray"
+                android:textSize="@dimen/model_result_item_body_text_size"
+                app:layout_constraintBottom_toBottomOf="@id/model_result_item_inference_time_title_text_view"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/model_result_item_inference_time_title_text_view"
+                tools:text="20ms" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
