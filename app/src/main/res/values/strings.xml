@@ -4,4 +4,5 @@
     <!-- 모델 선택 페이지 -->
     <string name="select_model_title">테스트할 모델을 선택하세요.</string>
     <string name="select_model_button">실행</string>
+    <string name="select_model_no_model_selected">적어도 하나의 모델을 선택해주세요.</string>
 </resources>
