@@ -13,8 +13,10 @@ import com.classification.handwriting.databinding.ActivityModelResultBinding
 import com.classification.handwriting.domain.model.ModelItem
 import com.classification.handwriting.presentation.IntentContract.CROPPED_IMAGE_EXTRA_NAME
 import com.classification.handwriting.presentation.IntentContract.MODEL_LIST_EXTRA_NAME
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class ModelResultActivity : AppCompatActivity() {
     private val viewModel: ModelResultViewModel by viewModels()
     private lateinit var binding: ActivityModelResultBinding

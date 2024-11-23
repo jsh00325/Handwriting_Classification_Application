@@ -1,6 +1,8 @@
 package com.classification.handwriting.di
 
+import com.classification.handwriting.data.repositoryImpl.ImageProcessingRepositoryImpl
 import com.classification.handwriting.data.repositoryImpl.ModelRepositoryImpl
+import com.classification.handwriting.domain.repository.ImageProcessingRepository
 import com.classification.handwriting.domain.repository.ModelRepository
 import dagger.Binds
 import dagger.Module
@@ -17,4 +19,10 @@ abstract class RepositoryModule {
     abstract fun bindModelRepository(
         modelRepository: ModelRepositoryImpl
     ): ModelRepository
+
+    @Binds
+    @Singleton
+    abstract fun bindImageProcessingRepository(
+        imageProcessingRepository: ImageProcessingRepositoryImpl
+    ): ImageProcessingRepository
 }
