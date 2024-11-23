@@ -27,14 +27,13 @@ class SelectModelAdapter(
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ModelViewHolder =
-        ModelViewHolder(
-            ItemSelectModelBinding.inflate(
-                LayoutInflater.from(parent.context),
-                parent,
-                false
-            )
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = ModelViewHolder(
+        ItemSelectModelBinding.inflate(
+            LayoutInflater.from(parent.context),
+            parent,
+            false
         )
+    )
 
     override fun onBindViewHolder(holder: ModelViewHolder, position: Int) {
         holder.bind(getItem(position))

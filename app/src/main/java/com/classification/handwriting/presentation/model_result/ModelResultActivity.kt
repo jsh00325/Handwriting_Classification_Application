@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.classification.handwriting.R
 import com.classification.handwriting.databinding.ActivityModelResultBinding
 import com.classification.handwriting.domain.model.ModelItem
@@ -23,6 +24,7 @@ import kotlinx.coroutines.launch
 class ModelResultActivity : AppCompatActivity() {
     private val viewModel: ModelResultViewModel by viewModels()
     private lateinit var binding: ActivityModelResultBinding
+    private lateinit var adapter: ModelResultAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,6 +32,7 @@ class ModelResultActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         getPreStepData()
+        setupRecyclerView()
         collectHandwritingImage()
     }
 
@@ -57,6 +60,23 @@ class ModelResultActivity : AppCompatActivity() {
             return
         } else {
             viewModel.updatePreStepData(selectedModel, imageBitmap)
+        }
+    }
+
+    private fun setupRecyclerView() {
+        adapter = ModelResultAdapter()
+
+        binding.modelResultRecyclerView.apply {
+            adapter = this@ModelResultActivity.adapter
+            layoutManager = LinearLayoutManager(this@ModelResultActivity)
+        }
+
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.modelResult.collect {
+                    adapter.submitList(it)
+                }
+            }
         }
     }
 

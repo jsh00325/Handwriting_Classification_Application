@@ -1,13 +1,14 @@
 package com.classification.handwriting.presentation.model_result
 
 import android.graphics.Bitmap
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.classification.handwriting.domain.model.ModelItem
+import com.classification.handwriting.domain.model.ModelResultItem
 import com.classification.handwriting.domain.usecase.BinarizeImageUseCase
 import com.classification.handwriting.domain.usecase.ClassifyImageUseCase
 import com.classification.handwriting.presentation.model_result.uidata.ImageUiItem
+import com.classification.handwriting.presentation.model_result.uidata.ModelResultUiItem
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -24,6 +25,9 @@ class ModelResultViewModel @Inject constructor(
     private val _handwritingImage = MutableStateFlow<ImageUiItem?>(null)
     val handwritingImage = _handwritingImage
 
+    private val _modelResult = MutableStateFlow<List<ModelResultUiItem>>(emptyList())
+    val modelResult = _modelResult
+
     fun updatePreStepData(selectedModelList: List<ModelItem>, handwritingBitmap: Bitmap) {
         val binarizedImage = binarizeImage(handwritingBitmap)
         _selectedModel.value = selectedModelList
@@ -38,8 +42,15 @@ class ModelResultViewModel @Inject constructor(
         viewModelScope.launch(Dispatchers.IO) {
             _selectedModel.value.forEach { model ->
                 val result = classifyImage(image, model)
-                Log.d("jsh00325", "ModelResultViewModel.runModels() result: $result")
+                _modelResult.emit(_modelResult.value + result.toUiData())
             }
         }
     }
+
+    private fun ModelResultItem.toUiData() = ModelResultUiItem(
+        modelName = modelName,
+        predictGender = predictGender,
+        predictAge = predictAge,
+        inferenceTime = "${inferenceTime}ms"
+    )
 }

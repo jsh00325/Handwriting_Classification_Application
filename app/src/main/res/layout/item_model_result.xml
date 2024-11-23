@@ -3,6 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+        <variable
+            name="modelResult"
+            type="com.classification.handwriting.presentation.model_result.uidata.ModelResultUiItem" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -13,6 +19,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/model_result_item_title_margin"
+            android:text="@{modelResult.modelName}"
             android:textColor="@color/textBlack"
             android:textSize="@dimen/model_result_item_title_text_size"
             app:layout_constraintStart_toStartOf="parent"
@@ -46,6 +53,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/model_result_item_inner_margin"
+                android:text="@{modelResult.predictGender}"
                 android:textColor="@color/textGray"
                 android:textSize="@dimen/model_result_item_body_text_size"
                 app:layout_constraintBottom_toBottomOf="@id/model_result_item_gender_title_text_view"
@@ -69,6 +77,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/model_result_item_inner_margin"
+                android:text="@{modelResult.predictAge}"
                 android:textColor="@color/textGray"
                 android:textSize="@dimen/model_result_item_body_text_size"
                 app:layout_constraintBottom_toBottomOf="@id/model_result_item_age_title_text_view"
@@ -93,6 +102,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/model_result_item_inner_margin"
+                android:text="@{modelResult.inferenceTime}"
                 android:textColor="@color/textGray"
                 android:textSize="@dimen/model_result_item_body_text_size"
                 app:layout_constraintBottom_toBottomOf="@id/model_result_item_inference_time_title_text_view"
