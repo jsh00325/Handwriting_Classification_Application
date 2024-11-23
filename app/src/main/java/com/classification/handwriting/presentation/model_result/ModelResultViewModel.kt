@@ -51,6 +51,8 @@ class ModelResultViewModel @Inject constructor(
         modelName = modelName,
         predictGender = predictGender,
         predictAge = predictAge,
-        inferenceTime = "${inferenceTime}ms"
+        inferenceTimeCPU = inferenceTimeCPU?.let { "${it}ms" } ?: "-",
+        inferenceTimeGPU = inferenceTimeGPU?.let { "${it}ms" } ?: "-",
+        inferenceTimeNNAPI = inferenceTimeNNAPI?.let { "${it}ms" } ?: "-"
     )
 }

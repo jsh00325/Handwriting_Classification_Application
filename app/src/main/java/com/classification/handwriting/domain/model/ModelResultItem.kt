@@ -4,5 +4,7 @@ data class ModelResultItem(
     val modelName: String,
     val predictGender: String,
     val predictAge: String,
-    val inferenceTime: Long
+    val inferenceTimeCPU: Long?,
+    val inferenceTimeGPU: Long?,
+    val inferenceTimeNNAPI: Long?
 )

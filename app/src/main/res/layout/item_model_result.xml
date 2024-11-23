@@ -86,28 +86,76 @@
                 tools:text="20대" />
 
             <TextView
-                android:id="@+id/model_result_item_inference_time_title_text_view"
+                android:id="@+id/model_result_item_inference_time_cpu_title_text_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/model_result_item_inner_margin"
-                android:text="@string/model_result_item_inference_time_title"
+                android:text="@string/model_result_item_inference_time_cpu_title"
                 android:textColor="@color/textBlack"
                 android:textSize="@dimen/model_result_item_body_text_size"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/model_result_item_age_result_text_view" />
 
             <TextView
-                android:id="@+id/model_result_item_inference_time_result_text_view"
+                android:id="@+id/model_result_item_inference_time_cpu_result_text_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/model_result_item_inner_margin"
-                android:text="@{modelResult.inferenceTime}"
+                android:text="@{modelResult.inferenceTimeCPU}"
                 android:textColor="@color/textGray"
                 android:textSize="@dimen/model_result_item_body_text_size"
-                app:layout_constraintBottom_toBottomOf="@id/model_result_item_inference_time_title_text_view"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@id/model_result_item_inference_time_title_text_view"
+                app:layout_constraintBottom_toBottomOf="@id/model_result_item_inference_time_cpu_title_text_view"
+                app:layout_constraintTop_toTopOf="@id/model_result_item_inference_time_cpu_title_text_view"
+                tools:text="30ms" />
+
+            <TextView
+                android:id="@+id/model_result_item_inference_time_gpu_title_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/model_result_item_inner_margin"
+                android:text="@string/model_result_item_inference_time_gpu_title"
+                android:textColor="@color/textBlack"
+                android:textSize="@dimen/model_result_item_body_text_size"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/model_result_item_inference_time_cpu_title_text_view" />
+
+            <TextView
+                android:id="@+id/model_result_item_inference_time_gpu_result_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/model_result_item_inner_margin"
+                android:text="@{modelResult.inferenceTimeGPU}"
+                android:textColor="@color/textGray"
+                android:textSize="@dimen/model_result_item_body_text_size"
+                app:layout_constraintBottom_toBottomOf="@id/model_result_item_inference_time_gpu_title_text_view"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/model_result_item_inference_time_gpu_title_text_view"
+                tools:text="25ms" />
+
+            <TextView
+                android:id="@+id/model_result_item_inference_time_nnapi_title_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/model_result_item_inner_margin"
+                android:text="@string/model_result_item_inference_time_nnapi_title"
+                android:textColor="@color/textBlack"
+                android:textSize="@dimen/model_result_item_body_text_size"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/model_result_item_inference_time_gpu_title_text_view" />
+
+            <TextView
+                android:id="@+id/model_result_item_inference_time_nnapi_result_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/model_result_item_inner_margin"
+                android:text="@{modelResult.inferenceTimeNNAPI}"
+                android:textColor="@color/textGray"
+                android:textSize="@dimen/model_result_item_body_text_size"
+                app:layout_constraintBottom_toBottomOf="@id/model_result_item_inference_time_nnapi_title_text_view"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/model_result_item_inference_time_nnapi_title_text_view"
                 tools:text="20ms" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

@@ -28,7 +28,9 @@ class ModelRepositoryImpl @Inject constructor() : ModelRepository {
             modelName = model.modelName,
             predictGender = randomGender,
             predictAge = randomAge,
-            inferenceTime = randomTime
+            inferenceTimeCPU = randomTime,
+            inferenceTimeGPU = randomTime / 2,
+            inferenceTimeNNAPI = null
         )
     }
 }
