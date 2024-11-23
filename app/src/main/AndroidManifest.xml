@@ -2,7 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.CAMERA" />
+
     <uses-feature
         android:name="android.hardware.camera"
         android:required="true" />
@@ -18,6 +19,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HandwritingClassification"
         tools:targetApi="31">
+        <activity
+            android:name=".presentation.model_result.ModelResultActivity"
+            android:exported="false" />
         <activity
             android:name=".presentation.camera.CameraActivity"
             android:exported="false" />
