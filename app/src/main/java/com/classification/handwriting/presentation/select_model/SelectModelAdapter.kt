@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.classification.handwriting.databinding.ItemSelectModelBinding
-import com.classification.handwriting.presentation.select_model.data.SelectModelUiItem
+import com.classification.handwriting.presentation.select_model.uidata.SelectModelUiItem
 
 class SelectModelAdapter(
     private val onCheckedChange: (Int, Boolean) -> Unit

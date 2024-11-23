@@ -9,7 +9,7 @@
             type="com.classification.handwriting.presentation.select_model.SelectModelAdapter.ModelViewHolder" />
         <variable
             name="item"
-            type="com.classification.handwriting.presentation.select_model.data.SelectModelUiItem" />
+            type="com.classification.handwriting.presentation.select_model.uidata.SelectModelUiItem" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

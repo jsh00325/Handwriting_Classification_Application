@@ -4,6 +4,7 @@ import android.graphics.Bitmap
 import androidx.lifecycle.ViewModel
 import com.classification.handwriting.domain.model.ModelItem
 import com.classification.handwriting.domain.usecase.BinarizeImageUseCase
+import com.classification.handwriting.presentation.model_result.uidata.ImageUiItem
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import javax.inject.Inject
@@ -14,7 +15,7 @@ class ModelResultViewModel @Inject constructor(
 ) : ViewModel() {
 
     private val _selectedModel = MutableStateFlow<List<ModelItem>>(emptyList())
-    private val _handwritingImage = MutableStateFlow<Bitmap?>(null)
+    private val _handwritingImage = MutableStateFlow<ImageUiItem?>(null)
     val handwritingImage = _handwritingImage
 
     fun updateSelectedModel(selectedModelList: List<ModelItem>) {
@@ -22,6 +23,9 @@ class ModelResultViewModel @Inject constructor(
     }
 
     fun updateHandwritingImage(handwritingBitmap: Bitmap) {
-        _handwritingImage.value = binarizeImage(handwritingBitmap)
+        _handwritingImage.value = ImageUiItem(
+            originImage = handwritingBitmap,
+            binarizedImage = binarizeImage(handwritingBitmap)
+        )
     }
 }

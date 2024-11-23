@@ -1,4 +1,4 @@
-package com.classification.handwriting.presentation.select_model.data
+package com.classification.handwriting.presentation.select_model.uidata
 
 import com.classification.handwriting.domain.model.ModelItem
 

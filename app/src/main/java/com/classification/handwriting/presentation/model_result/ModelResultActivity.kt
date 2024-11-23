@@ -1,7 +1,10 @@
 package com.classification.handwriting.presentation.model_result
 
+import android.annotation.SuppressLint
+import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.os.Bundle
+import android.view.MotionEvent
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -61,11 +64,29 @@ class ModelResultActivity : AppCompatActivity() {
     private fun collectHandwritingImage() {
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
-                viewModel.handwritingImage.collect { bitmap ->
-                    bitmap?.let {
-                        binding.modelResultImagePreviewImageView.setImageBitmap(bitmap)
+                viewModel.handwritingImage.collect { imageItem ->
+                    imageItem?.let { item ->
+                        setupImagePreview(item.originImage, item.binarizedImage)
                     }
                 }
+            }
+        }
+    }
+
+    @SuppressLint("ClickableViewAccessibility")
+    private fun setupImagePreview(originImage: Bitmap, binarizedImage: Bitmap) {
+        binding.modelResultImagePreviewImageView.setImageBitmap(originImage)
+        binding.modelResultImagePreviewImageView.setOnTouchListener { _, event ->
+            when (event.action) {
+                MotionEvent.ACTION_DOWN -> {
+                    binding.modelResultImagePreviewImageView.setImageBitmap(binarizedImage)
+                    true
+                }
+                MotionEvent.ACTION_UP -> {
+                    binding.modelResultImagePreviewImageView.setImageBitmap(originImage)
+                    true
+                }
+                else -> false
             }
         }
     }

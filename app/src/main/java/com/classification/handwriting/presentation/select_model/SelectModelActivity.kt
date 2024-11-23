@@ -14,7 +14,7 @@ import com.classification.handwriting.databinding.ActivitySelectModelBinding
 import com.classification.handwriting.domain.model.ModelItem
 import com.classification.handwriting.presentation.IntentContract.MODEL_LIST_EXTRA_NAME
 import com.classification.handwriting.presentation.camera.CameraActivity
-import com.classification.handwriting.presentation.select_model.data.SelectModelUiState
+import com.classification.handwriting.presentation.select_model.uidata.SelectModelUiState
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 

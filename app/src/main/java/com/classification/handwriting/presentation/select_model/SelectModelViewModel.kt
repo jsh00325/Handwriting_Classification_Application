@@ -4,8 +4,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.classification.handwriting.domain.model.ModelItem
 import com.classification.handwriting.domain.usecase.GetModelListUseCase
-import com.classification.handwriting.presentation.select_model.data.SelectModelUiItem
-import com.classification.handwriting.presentation.select_model.data.SelectModelUiState
+import com.classification.handwriting.presentation.select_model.uidata.SelectModelUiItem
+import com.classification.handwriting.presentation.select_model.uidata.SelectModelUiState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
