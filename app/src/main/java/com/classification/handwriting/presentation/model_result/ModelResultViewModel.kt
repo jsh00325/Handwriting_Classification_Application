@@ -18,14 +18,16 @@ class ModelResultViewModel @Inject constructor(
     private val _handwritingImage = MutableStateFlow<ImageUiItem?>(null)
     val handwritingImage = _handwritingImage
 
-    fun updateSelectedModel(selectedModelList: List<ModelItem>) {
+    fun updatePreStepData(selectedModelList: List<ModelItem>, handwritingBitmap: Bitmap) {
         _selectedModel.value = selectedModelList
-    }
-
-    fun updateHandwritingImage(handwritingBitmap: Bitmap) {
         _handwritingImage.value = ImageUiItem(
             originImage = handwritingBitmap,
             binarizedImage = binarizeImage(handwritingBitmap)
         )
+        runModels()
+    }
+
+    private fun runModels() {
+        // 모델 실행
     }
 }

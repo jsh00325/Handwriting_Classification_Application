@@ -29,35 +29,34 @@ class ModelResultActivity : AppCompatActivity() {
         binding = ActivityModelResultBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        getSelectedModelList()
-        getCroppedImage()
+        getPreStepData()
         collectHandwritingImage()
     }
 
-    private fun getSelectedModelList() {
-        intent.getParcelableArrayListExtra<ModelItem>(MODEL_LIST_EXTRA_NAME)?.let { selectedModel ->
-            viewModel.updateSelectedModel(selectedModel)
-        } ?: {
+    private fun getPreStepData() {
+        val selectedModel = intent.getParcelableArrayListExtra<ModelItem>(MODEL_LIST_EXTRA_NAME)
+        val imageBitmap = intent.getByteArrayExtra(CROPPED_IMAGE_EXTRA_NAME)?.let {
+            BitmapFactory.decodeByteArray(it, 0, it.size)
+        }
+
+        if (selectedModel == null) {
             Toast.makeText(
                 this,
                 R.string.model_result_model_list_not_found_error,
                 Toast.LENGTH_SHORT
             ).show()
             finish()
-        }
-    }
-
-    private fun getCroppedImage() {
-        intent.getByteArrayExtra(CROPPED_IMAGE_EXTRA_NAME)?.let { byteArray ->
-            val croppedImageBitmap = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.size)
-            viewModel.updateHandwritingImage(croppedImageBitmap)
-        } ?: {
+            return
+        } else if (imageBitmap == null) {
             Toast.makeText(
                 this,
                 R.string.model_result_image_not_found_error,
                 Toast.LENGTH_SHORT
             ).show()
             finish()
+            return
+        } else {
+            viewModel.updatePreStepData(selectedModel, imageBitmap)
         }
     }
 
@@ -82,10 +81,12 @@ class ModelResultActivity : AppCompatActivity() {
                     binding.modelResultImagePreviewImageView.setImageBitmap(binarizedImage)
                     true
                 }
+
                 MotionEvent.ACTION_UP -> {
                     binding.modelResultImagePreviewImageView.setImageBitmap(originImage)
                     true
                 }
+
                 else -> false
             }
         }
