@@ -9,6 +9,6 @@ class ClassifyImageUseCase @Inject constructor(
     private val modelRepository: ModelRepository,
 ) {
 
-    suspend operator fun invoke(image: Bitmap, model: ModelItem) =
+    operator fun invoke(image: Bitmap, model: ModelItem) =
         modelRepository.classifyImage(image, model)
 }
