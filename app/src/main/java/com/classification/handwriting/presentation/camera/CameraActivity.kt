@@ -178,6 +178,6 @@ class CameraActivity : AppCompatActivity() {
     companion object {
         private const val ROTATE_DEGREE = 90f
         private const val RESIZE_WIDTH = 180
-        private const val RESIZE_HEIGHT = 78
+        private const val RESIZE_HEIGHT = 76
     }
 }
