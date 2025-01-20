@@ -7,9 +7,9 @@ import android.util.Log
 import com.classification.handwriting.data.entity.InferenceResultEntity
 import dagger.hilt.android.qualifiers.ApplicationContext
 import org.tensorflow.lite.Interpreter
+import org.tensorflow.lite.gpu.CompatibilityList
 import org.tensorflow.lite.gpu.GpuDelegate
 import org.tensorflow.lite.nnapi.NnApiDelegate
-import org.tensorflow.lite.support.image.TensorImage
 import java.io.FileInputStream
 import java.nio.ByteBuffer
 import java.nio.ByteOrder
@@ -51,7 +51,7 @@ class TensorflowLiteDataSource @Inject constructor(
     // GPU를 사용한 Interpreter 생성
     fun createGPUInterpreter(loadedModel: ByteBuffer): Interpreter? = try {
         Interpreter(loadedModel, Interpreter.Options().apply {
-            addDelegate(GpuDelegate())
+            addDelegate(GpuDelegate(CompatibilityList().bestOptionsForThisDevice))
         })
     } catch (e: Throwable) {
         Log.e(TAG, "GPU Interpreter creation failed: ${e.message}", e)
@@ -69,8 +69,6 @@ class TensorflowLiteDataSource @Inject constructor(
     }
 
     fun runInference(interpreter: Interpreter, binarizeImage: Bitmap, isDebug: Boolean = false): InferenceResultEntity {
-
-        val image = TensorImage.fromBitmap(binarizeImage)
         // 이진화된 이미지는 픽셀당 1채널(흑백)만 필요
         val inputArray =
             ByteBuffer.allocateDirect(MODEL_INPUT_WIDTH * MODEL_INPUT_HEIGHT * 1 * 4).apply {

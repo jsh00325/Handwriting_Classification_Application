@@ -15,9 +15,9 @@ class ModelRepositoryImpl @Inject constructor(
 ) : ModelRepository {
     // TODO: 모델 구현 완료 후 수정 필요
     override fun getModelList(): List<ModelItem> = listOf(
-        ModelItem("Test Model 1", "test_model.tflite"),
-        ModelItem("Test Model 2", "test_model.tflite"),
-        ModelItem("Test Model 3", "test_model.tflite")
+        ModelItem("EfficientNet V2S", "EfficientNetV2S_gd_ag_model.tflite"),
+        ModelItem("EfficientNet V2S", "EfficientNetV2S_gd_ag_model.tflite"),
+        ModelItem("EfficientNet V2S", "EfficientNetV2S_gd_ag_model.tflite")
     )
 
     override fun classifyImage(binarizedImage: Bitmap, model: ModelItem): ModelResultItem {
@@ -30,7 +30,6 @@ class ModelRepositoryImpl @Inject constructor(
             binarizedImage
         )
 
-        // TODO: GPU에서 반드시 실패하는 오류 수정 필요
         Log.d(TAG, "start inference with GPU")
         val gpuResult = processInterpreter(
             dataSource.createGPUInterpreter(loadedModel),

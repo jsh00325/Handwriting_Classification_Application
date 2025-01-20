@@ -67,6 +67,7 @@ dependencies {
 
     implementation("org.tensorflow:tensorflow-lite:2.13.0")
     implementation("org.tensorflow:tensorflow-lite-gpu:2.13.0")
+    implementation("com.google.ai.edge.litert:litert-gpu-api:1.0.1")
     implementation("org.tensorflow:tensorflow-lite-support:0.4.0")
 
     testImplementation("junit:junit:4.13.2")
