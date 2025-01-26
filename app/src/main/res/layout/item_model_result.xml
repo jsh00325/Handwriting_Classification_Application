@@ -104,8 +104,8 @@
                 android:text="@{modelResult.inferenceTimeCPU}"
                 android:textColor="@color/textGray"
                 android:textSize="@dimen/model_result_item_body_text_size"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintBottom_toBottomOf="@id/model_result_item_inference_time_cpu_title_text_view"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@id/model_result_item_inference_time_cpu_title_text_view"
                 tools:text="30ms" />
 
@@ -117,6 +117,7 @@
                 android:text="@string/model_result_item_inference_time_gpu_title"
                 android:textColor="@color/textBlack"
                 android:textSize="@dimen/model_result_item_body_text_size"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/model_result_item_inference_time_cpu_title_text_view" />
 
@@ -132,6 +133,8 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@id/model_result_item_inference_time_gpu_title_text_view"
                 tools:text="25ms" />
+
+            <!-- NNAPI -> 의미가 없어서 사용 X
 
             <TextView
                 android:id="@+id/model_result_item_inference_time_nnapi_title_text_view"
@@ -157,6 +160,8 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@id/model_result_item_inference_time_nnapi_title_text_view"
                 tools:text="20ms" />
+
+            -->
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Handwriting Classification</string>
+    <string name="select_model_title">Select a model to test.</string>
+    <string name="select_model_button">Run</string>
+    <string name="select_model_no_model_selected">Please select at least one model.</string>
+    <string name="camera_guide_bounding_box_desc">Please fit your handwriting within the box below.</string>
+    <string name="camera_button">Capture &amp; Analyze</string>
+    <string name="camera_require_permission">Camera permission is required.</string>
+    <string name="camera_binding_error">Failed to bind the camera.</string>
+    <string name="camera_capture_error">Failed to capture the photo.</string>
+    <string name="model_result_title">Analysis Results</string>
+    <string name="model_result_image_desc">Handwriting Image for Analysis</string>
+    <string name="model_result_item_gender_title">Gender</string>
+    <string name="model_result_item_age_title">Age Group</string>
+    <string name="model_result_item_inference_time_cpu_title">Processing Time (CPU)</string>
+    <string name="model_result_item_inference_time_gpu_title">Processing Time (GPU)</string>
+    <string name="model_result_item_inference_time_nnapi_title">Processing Time (NPU)</string>
+    <string name="model_result_model_list_not_found_error">Unable to find the model to use.</string>
+    <string name="model_result_image_not_found_error">Unable to find an image for analysis.</string>
+    <string name="model_result_item_female">Female</string>
+    <string name="model_result_item_male">Male</string>
+    <string name="model_result_item_age_10">10s</string>
+    <string name="model_result_item_age_20">20s</string>
+    <string name="model_result_item_age_30">30s</string>
+    <string name="model_result_item_age_40">40s</string>
+    <string name="model_result_item_age_50">50s</string>
+    <string name="model_result_item_fail">Fail</string>
+</resources>
